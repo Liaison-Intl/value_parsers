@@ -6,7 +6,7 @@ This gem provides services classes to parse your filthy values.
 
 Add this line to your application's Gemfile:
 
-```sh
+```ruby
 gem 'value_parsers'
 ```
 
@@ -27,20 +27,20 @@ $ gem install value_parsers
 Clone it
 
 ```sh
-git clone git@github.com:Liaison-Intl/value_parsers.git
+$ git clone git@github.com:Liaison-Intl/value_parsers.git
 ```
 
 Bundle
 
 ```sh
-cd value_parsers
-bundle install
+$ cd value_parsers
+$ bundle install
 ```
 
 Run the specs
 
 ```sh
-bundle exec rake test
+$ bundle exec rake test
 ```
 
 ## Usage
@@ -65,7 +65,7 @@ ValueParsers::BooleanParser.yes_no('3')
      \<github user name\>/\<[optional issue id-]description of feature or bug\>
 
      ```sh
-     git checkout -b zacstewart/12-add_datetime_parser
+     $ git checkout -b zacstewart/12-add_datetime_parser
      ```
 
   4. Tag commits with the issue number
@@ -80,7 +80,7 @@ ValueParsers::BooleanParser.yes_no('3')
   5. Push your feature branch
 
      ```sh
-     git push -u origin zacstewart/12-add_datetime_parser
+     $ git push -u origin zacstewart/12-add_datetime_parser
      ```
   6. Open a pull request. If the issue is complicated and warrants discussion,
      open a pull request with the first commit to facilitate discussion and
@@ -88,7 +88,7 @@ ValueParsers::BooleanParser.yes_no('3')
   7. Test your changes. Insure all tests are still green.
 
      ```sh
-     bundle exec rake
+     $ bundle exec rake
      ```
   8. Ask someone to review your work
   9. Someone will review and merge your pull request (using the `--no-ff` option) and delete
