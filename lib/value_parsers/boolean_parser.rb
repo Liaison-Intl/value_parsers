@@ -13,12 +13,12 @@ module ValueParsers
       nil   => 'Not Sure'
     }.freeze
 
-    def self.boolean(value)
+    def self.parse(value)
       BOOLEAN_MAP.fetch(value) { value }
     end
 
-    def self.yes_no(value)
-      YES_NO_MAP.fetch(boolean(value)) { value }
+    def self.humanize(value)
+      YES_NO_MAP.fetch(parse(value)) { value }
     end
 
   end
