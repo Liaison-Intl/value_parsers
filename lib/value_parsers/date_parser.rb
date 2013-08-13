@@ -1,6 +1,6 @@
 module ValueParsers
   class DateParser
-    class InvalidDate < ArgumentError; end
+    class InvalidDate < InvalidValue; end
 
     def self.parse(value)
       if mm_dd_yyyy?(value)
