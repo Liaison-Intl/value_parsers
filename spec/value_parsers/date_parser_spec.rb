@@ -13,4 +13,10 @@ describe DateParser do
   describe 'parsing yyyy-mm-dd' do
     it { DateParser.parse('2013-08-05').must_equal Date.new(2013, 8, 5) }
   end
+
+  describe 'parsing an invalid date' do
+    it do
+      -> { DateParser.parse('i am not a date') }.must_raise(DateParser::InvalidDate)
+    end
+  end
 end
