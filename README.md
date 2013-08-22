@@ -7,7 +7,7 @@ This gem provides services classes to parse your filthy values.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'value_parsers', github: 'Liaison-Intl/value_parsers'
+gem 'value_parsers', git: 'git@github.com:Liaison-Intl/value_parsers.git'
 ```
 
 And then execute:
