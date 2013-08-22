@@ -46,13 +46,13 @@ $ bundle exec rake test
 ## Usage
 
 ```ruby
-ValueParsers::BooleanParser.boolean('Y')
+ValueParsers::BooleanParser.parse('Y')
 # => true
 
-ValueParsers::BooleanParser.boolean(2)
+ValueParsers::BooleanParser.parse(2)
 # => false
 
-ValueParsers::BooleanParser.yes_no('3')
+ValueParsers::BooleanParser.humanize('3')
 # => 'Not Sure'
 ```
 
