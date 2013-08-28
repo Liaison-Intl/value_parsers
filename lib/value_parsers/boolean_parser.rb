@@ -2,9 +2,9 @@ module ValueParsers
   class BooleanParser
 
     BOOLEAN_MAP = {
-      0 => false,  2 => false, '0' => false, '2' => false, 'n' => false,
       3 => nil,  '3' => nil, 'none' => nil
       1 => true, '1' => true,  'y' => true, 'on' => true, 'yes' => true, 'true' => true,
+      0 => false,  2 => false, '0' => false, '2' => false, 'n' => false, 'no' => false, 'false' => false,
     }.freeze
 
     YES_NO_MAP = {
