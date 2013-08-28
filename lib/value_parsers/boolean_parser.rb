@@ -2,9 +2,9 @@ module ValueParsers
   class BooleanParser
 
     BOOLEAN_MAP = {
-      1 => true, '1' => true,  'Y' => true, 'on' => true,
-      0 => false,  2 => false, '0' => false, '2' => false, 'N' => false,
-      3 => nil,  '3' => nil
+      1 => true, '1' => true,  'y' => true, 'on' => true,
+      0 => false,  2 => false, '0' => false, '2' => false, 'n' => false,
+      3 => nil,  '3' => nil, 'none' => nil
     }.freeze
 
     YES_NO_MAP = {
@@ -14,7 +14,7 @@ module ValueParsers
     }.freeze
 
     def self.parse(value)
-      BOOLEAN_MAP.fetch(value) { value }
+      BOOLEAN_MAP.fetch(value.to_s.downcase) { value }
     end
 
     def self.humanize(value)

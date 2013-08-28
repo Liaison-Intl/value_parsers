@@ -72,6 +72,11 @@ describe BooleanParser do
     it { BooleanParser.humanize(nil).must_equal 'Not Sure' }
   end
 
+  describe 'parsing "NONE"' do
+    it { BooleanParser.parse('NONE').must_equal nil }
+    it { BooleanParser.humanize('NONE').must_equal 'Not Sure' }
+  end
+
   describe 'parsing "garbage"' do
     it { BooleanParser.parse('garbage').must_equal 'garbage' }
     it { BooleanParser.humanize('garbage').must_equal 'garbage'}
