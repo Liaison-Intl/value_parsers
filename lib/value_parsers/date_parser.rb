@@ -5,7 +5,8 @@ module ValueParsers
     DATE_FORMATS = {
       %r(\A\d{1,2}/\d{1,2}/\d{4}\Z) => '%m/%d/%Y',
       %r(\A\d{1,2}/\d{4}\Z)         => '%m/%Y',
-      %r(\A\d{4}-\d{1,2}-\d{1,2}\Z) => '%Y-%m-%d'
+      %r(\A\d{4}-\d{1,2}-\d{1,2}\Z) => '%Y-%m-%d',
+      %r(\A\d{4}-\d{1,2}\Z)         => '%Y-%m'
     }
 
     def self.parse(value)
