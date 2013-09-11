@@ -2,49 +2,23 @@ module ValueParsers
   class DateParser
     class InvalidDate < InvalidValue; end
 
+    DATE_FORMATS = {
+      %r(\A\d{1,2}/\d{1,2}/\d{4}\Z) => '%m/%d/%Y',
+      %r(\A\d{1,2}/\d{4}\Z)         => '%m/%Y',
+      %r(\A\d{4}-\d{1,2}-\d{1,2}\Z) => '%Y-%m-%d'
+    }
+
     def self.parse(value)
-      if mm_dd_yyyy?(value)
-        mm_dd_yyyy(value)
-      elsif mm_yyyy?(value)
-        mm_yyyy(value)
-      elsif yyyy_mm_dd?(value)
-        yyyy_mm_dd(value)
-      else
-        raise InvalidDate, "Invalid date format: #{ value.inspect }"
-      end
+      format = fetch_format(value)
+      Date.strptime(value, format)
     end
 
     private
 
-    def self.mm_dd_yyyy?(value)
-      value.count('/') == 2
-    end
-
-    def self.mm_dd_yyyy(value)
-      parts = split(value, '/')
-      Date.new(parts[2], parts[0], parts[1])
-    end
-
-    def self.mm_yyyy?(value)
-      value.count('/') == 1
-    end
-
-    def self.mm_yyyy(value)
-      parts = split(value, '/')
-      Date.new(parts[1], parts[0])
-    end
-
-    def self.split(value, delimiter)
-      value.split(delimiter).map(&:to_i)
-    end
-
-    def self.yyyy_mm_dd?(value)
-      value.count('-') == 2
-    end
-
-    def self.yyyy_mm_dd(value)
-      parts = split(value, '-')
-      Date.new(*parts)
+    def self.fetch_format(value)
+      format = DATE_FORMATS.detect { |pattern, format| pattern === value }
+      raise InvalidDate, "Invalid date format: #{ value.inspect }" if format.nil?
+      format.last
     end
   end
 end
