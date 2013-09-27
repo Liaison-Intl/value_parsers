@@ -9,10 +9,6 @@ module ValueParsers
       %r(\A\d{4}-\d{1,2}\Z)         => '%Y-%m'
     }
 
-    class << self
-      alias_method :call, :parse
-    end
-
     def self.parse(value)
       format = fetch_format(value)
       Date.strptime(value, format)
@@ -25,5 +21,10 @@ module ValueParsers
       raise InvalidDate, "Invalid date format: #{ value.inspect }" if format.nil?
       format.last
     end
+
+    class << self
+      alias_method :call, :parse
+    end
+
   end
 end
