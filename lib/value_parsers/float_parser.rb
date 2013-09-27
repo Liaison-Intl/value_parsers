@@ -1,7 +1,9 @@
 module ValueParsers
   class FloatParser
 
-    alias_method :call, :parse
+    class << self
+      alias_method :call, :parse
+    end
 
     def self.parse(value)
       value.to_f
