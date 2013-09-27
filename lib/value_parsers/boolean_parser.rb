@@ -13,6 +13,8 @@ module ValueParsers
       nil   => 'Not Sure'
     }.freeze
 
+    alias_method :call, :parse
+
     def self.parse(value)
       BOOLEAN_MAP.fetch(value.to_s.downcase) { value }
     end

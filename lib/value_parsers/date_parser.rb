@@ -9,6 +9,8 @@ module ValueParsers
       %r(\A\d{4}-\d{1,2}\Z)         => '%Y-%m'
     }
 
+    alias_method :call, :parse
+
     def self.parse(value)
       format = fetch_format(value)
       Date.strptime(value, format)
