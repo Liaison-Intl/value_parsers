@@ -89,6 +89,11 @@ describe BooleanParser do
     it { subject.humanize("3").must_equal 'Not Sure'}
   end
 
+  describe 'parsing "N/A"' do
+    it { subject.parse('N/A').must_equal nil }
+    it { subject.humanize('N/A').must_equal 'Not Sure' }
+  end
+
   describe 'parsing nil' do
     it { subject.parse(nil).must_equal nil }
     it { subject.humanize(nil).must_equal 'Not Sure' }
