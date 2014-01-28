@@ -4,7 +4,7 @@ module ValueParsers
     BOOLEAN_MAP = {
       1 => true, '1' => true,  'y' => true, 'on' => true, 'yes' => true, 'true' => true,
       0 => false,  2 => false, '0' => false, '2' => false, 'n' => false, 'no' => false, 'false' => false,
-      3 => nil,  '3' => nil, 'none' => nil, '' => nil
+      3 => nil,  '3' => nil, 'n/a' => nil, 'none' => nil, '' => nil
     }.freeze
 
     YES_NO_MAP = {
