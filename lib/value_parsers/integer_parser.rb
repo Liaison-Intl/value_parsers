@@ -2,7 +2,8 @@ module ValueParsers
   class IntegerParser
 
     def self.parse(value)
-      value.to_i
+      return nil if value.nil? || value == ""
+      Integer(value)
     end
 
     class << self
