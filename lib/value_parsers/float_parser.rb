@@ -2,6 +2,7 @@ module ValueParsers
   class FloatParser
 
     def self.parse(value)
+      return nil if value.nil? || value == ""
       value.to_f
     end
 
