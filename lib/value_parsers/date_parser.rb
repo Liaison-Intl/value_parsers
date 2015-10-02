@@ -10,6 +10,7 @@ module ValueParsers
     }
 
     def self.parse(value)
+      return if value.to_s == ""
       format = fetch_format(value)
       Date.strptime(value, format)
     end

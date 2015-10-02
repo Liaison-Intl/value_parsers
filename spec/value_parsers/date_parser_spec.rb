@@ -23,4 +23,15 @@ describe DateParser do
       -> { DateParser.parse('i am not a date') }.must_raise(DateParser::InvalidDate)
     end
   end
+
+  describe 'parsing an empty string' do
+    it 'handles nil gracefully' do
+      DateParser.parse(nil).must_equal nil
+    end
+
+    it 'handles an empty string gracefully' do
+      DateParser.parse("").must_equal nil
+    end
+  end
+
 end
