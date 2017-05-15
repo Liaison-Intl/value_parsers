@@ -3,7 +3,7 @@ module ValueParsers
 
     def self.parse(value)
       return nil if value.nil? || value == ""
-      Integer(value)
+      Integer(value, 10)
     end
 
     class << self
