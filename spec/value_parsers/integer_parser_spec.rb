@@ -19,4 +19,9 @@ describe IntegerParser do
       proc { IntegerParser.parse("foo") }.must_raise(ArgumentError)
     end
   end
+
+  describe "parsing a value starting with 0" do
+    it { IntegerParser.parse('064').must_equal 64 }
+    it { IntegerParser.parse('0123456789').must_equal 123456789 }
+  end
 end
